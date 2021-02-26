@@ -1,12 +1,12 @@
 FROM node
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN mkdir -p /home/ec2-user/app/node_modules && chown -R node:node /home/ec2-user/app
 
-WORKDIR /home/node/app
+WORKDIR /home/ec2-user/app
 
 COPY package*.json ./
 
-USER node
+USER root
 
 RUN npm install
 
