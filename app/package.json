@@ -1,0 +1,15 @@
+{
+  "name": "dual-load-balancing-with-aws-and-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "node ."
+  },
+  "author": "Sowmen Rahman <sowmen.appd@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

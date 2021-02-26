@@ -1,0 +1,31 @@
+# install docker, -y for silent installation
+sudo amazon-linux-extras install -y docker
+
+# start the docker service
+sudo service docker start
+
+# make the default user the owner of the service
+# skipping calling with sudo all the time 
+sudo usermod -a -G docker ec2-user
+
+# auto-start docker on server boot
+sudo chkconfig docker on
+
+# get the appropriate version of docker compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+# set the permission on the downloaded binary
+sudo chmod +x /usr/local/bin/docker-compose
+
+# add nodejs yum repo and install nodejs and npm
+sudo yum install -y gcc-c++ make
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo -E bash -
+sudo yum install -y nodejs
+
+# reboot server
+sudo reboot
+
+## Optional
+## Test installation success
+docker-compose version
+
